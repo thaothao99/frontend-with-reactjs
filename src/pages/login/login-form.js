@@ -5,7 +5,9 @@ import {
   KeyOutlined,
   EyeTwoTone,
   EyeInvisibleOutlined,
+  UserAddOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 export default function LoginForm() {
   return (
@@ -35,6 +37,18 @@ export default function LoginForm() {
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
+        </Button>
+      </Form.Item>
+      <Form.Item>
+        <Link to="/login">
+          <span className="forgot-password-link">Forgot password</span>
+        </Link>
+        <Button
+          type="primary"
+          className="signup-button"
+          icon={<UserAddOutlined />}
+        >
+          Sign Up
         </Button>
       </Form.Item>
     </Form>
