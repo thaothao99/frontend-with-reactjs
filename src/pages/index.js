@@ -1,6 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { Switch } from 'antd'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import { observer, inject } from 'mobx-react'
 import { routes } from '../config/routes'
 
@@ -9,36 +8,38 @@ const RouterApp = inject(({ Store }) => Store)(
         const {
             authentication: { isAuth },
         } = props;
+        console.log(isAuth)
         return (
             <BrowserRouter>
                 <React.Suspense fallback={null}>
                     <Switch>
                         {
-                            !isAuth && routes.notAuth.map((route, index) =>
+                            routes && routes.notAuth.map((route, index) =>
                                 <Route
                                     key={index}
                                     exact={route.exact}
                                     path={route.path}
                                     render={() => {
-                                        const ComponentRender = React.lazy(`import from './${route.component}'`)
-                                        return <ComponentRender></ComponentRender>
+                                        const ComponentRender = React.lazy(() => import(`./${route.component}`))
+                                        return !isAuth ? <ComponentRender></ComponentRender> : <Redirect to='/'></Redirect>
                                     }}
                                 ></Route>
                             )
                         }
                         {
-                            !!isAuth && routes.auth.map((route, index) =>
+                            routes && routes.auth.map((route, index) =>
                                 <Route
                                     key={index}
                                     exact={route.exact}
                                     path={route.path}
                                     component={() => {
-                                        const ComponentRender = React.lazy(`import from './${route.component}'`)
-                                        return <ComponentRender></ComponentRender>
+                                        const ComponentRender = React.lazy(() => import(`./${route.component}`))
+                                        return isAuth ? <ComponentRender></ComponentRender> : <Redirect to='/login'></Redirect>
                                     }}
                                 ></Route>
                             )
                         }
+
                     </Switch>
                 </React.Suspense>
             </BrowserRouter>
