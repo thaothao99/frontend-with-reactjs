@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
-import { Button } from 'antd'
-import { callApi } from '../../api';
-
+import React from "react";
+import LoginForm from "./login-form";
+import "./index.scss";
 export default function Login() {
-    const [arrAcc, setArr] = useState([]);
-    const onClickBttn = async () => {
-        const data = await callApi('get', 'account/accounts', null)
-        setArr(data)
-        console.log(arrAcc)
-    }
-    return (
+  return (
+    <div className="login-container">
+      <div>
         <div>
-            <Button onClick={() => onClickBttn()}>get accounts</Button>
+          <h1>Log In</h1>
+          <p>login here using your username and password</p>
+          <div className="arrow-up "></div>
         </div>
-    )
+
+        <LoginForm />
+      </div>
+    </div>
+  );
 }
