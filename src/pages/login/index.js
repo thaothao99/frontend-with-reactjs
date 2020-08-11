@@ -4,10 +4,10 @@ import "./index.scss";
 export default function Login() {
   return (
     <div className="login-container">
-      <div>
+      <div className="content">
         <div className="title">
           <h1>Log In</h1>
-          <p>login here using your username and password</p>
+          <h4>login here using your username and password</h4>
         </div>
         <LoginForm />
       </div>
