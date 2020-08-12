@@ -42,13 +42,15 @@ export default function LoginForm() {
         <Link to="/login">
           <span className="forgot-password-link">Forgot your password?</span>
         </Link>
-        <Button
-          type="primary"
-          className="signup-button"
-          icon={<UserAddOutlined style={{ color: "#464446" }} />}
-        >
-          Sign Up
-        </Button>
+        <Link to="/signup">
+          <Button
+            type="primary"
+            className="signup-button"
+            icon={<UserAddOutlined style={{ color: "#464446" }} />}
+          >
+            Sign up
+          </Button>
+        </Link>
       </Form.Item>
     </Form>
   );

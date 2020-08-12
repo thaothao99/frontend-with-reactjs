@@ -16,7 +16,7 @@
     transform: translateY(-30%);
     background: rgb(238, 174, 202);
     background: linear-gradient(
-      140deg,
+      120deg,
       rgba(211, 238, 235, 1) 50%,
       rgba(238, 209, 222, 1) 50%
     );
@@ -38,9 +38,9 @@
       .login-form-button:hover {
         background: rgb(238, 174, 202);
         background: linear-gradient(
-          140deg,
-          rgba(211, 238, 235, 1) 32%,
-          rgba(238, 209, 222, 1) 32%
+          120deg,
+          rgba(211, 238, 235, 1) 39%,
+          rgba(238, 209, 222, 1) 39%
         );
         border: rgba(211, 238, 235, 1);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
@@ -62,6 +62,25 @@
       }
       .forgot-password-link:hover {
         text-decoration: underline;
+      }
+      .have-acc-link:hover {
+        text-decoration: underline;
+      }
+      .signup-form-button {
+        width: 100%;
+        height: 2.75em;
+        background: #fff;
+        border: none !important;
+      }
+      .signup-form-button:hover {
+        background: linear-gradient(
+          120deg,
+          rgba(211, 238, 235, 1) 20%,
+          rgba(238, 209, 222, 1) 20%
+        );
+        border: rgba(211, 238, 235, 1);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        font-weight: bolder;
       }
     }
   }

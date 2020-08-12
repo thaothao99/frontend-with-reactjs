@@ -12,5 +12,10 @@ export const routes = {
       exact: true,
       component: "login",
     },
+    {
+      path: "/signup",
+      exact: true,
+      component: "signup",
+    },
   ],
 };
