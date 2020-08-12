@@ -46,7 +46,7 @@ export default function LoginForm() {
           <Button
             type="primary"
             className="signup-button"
-            icon={<UserAddOutlined style={{ color: "#464446" }} />}
+            icon={<UserAddOutlined />}
           >
             Sign up
           </Button>
