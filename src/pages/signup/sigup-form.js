@@ -10,10 +10,30 @@ import {
   MailOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { callApi, showNotification } from "../../api";
 
 export default function SigupForm() {
+  const onFinish = (values) => {
+    const data = {
+      username: values.username,
+      password: values.password,
+      name: values.name,
+      phone: values.phone,
+      email: values.email,
+    };
+    callApi("post", "account/create", data).then((responseData) => {
+      return (
+        responseData &&
+        showNotification(
+          "success",
+          "Success",
+          "Thanks! Your account has been successfully create!"
+        )
+      );
+    });
+  };
   return (
-    <Form className="login-form">
+    <Form className="login-form" onFinish={onFinish}>
       <Form.Item
         name="name"
         rules={[{ required: true, message: "Please input your Name!" }]}
@@ -61,7 +81,13 @@ export default function SigupForm() {
       </Form.Item>
       <Form.Item
         name="password"
-        rules={[{ required: true, message: "Please input your Password!" }]}
+        rules={[
+          { required: true, message: "Please input your Password!" },
+          {
+            pattern: "^.{6,}$",
+            message: "Password must contain at least 6 character",
+          },
+        ]}
       >
         <Input.Password
           prefix={<KeyOutlined className="site-form-item-icon" />}
