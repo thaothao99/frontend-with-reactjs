@@ -8,10 +8,21 @@ import {
   UserAddOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { callApi, showNotification } from "../../api";
 
-export default function LoginForm() {
+export default function LoginForm(props) {
+  const { Store } = props;
+  const { authentication } = Store;
+  const onFinish = (values) => {
+    callApi("post", "account/login", values).then((resData) => {
+      if (resData) {
+        showNotification("success", "Success", "Login successfull!");
+        authentication.setToken(resData.token);
+      }
+    });
+  };
   return (
-    <Form name="normal_login" className="login-form">
+    <Form name="normal_login" className="login-form" onFinish={onFinish}>
       <Form.Item
         name="username"
         rules={[{ required: true, message: "Please input your Username!" }]}

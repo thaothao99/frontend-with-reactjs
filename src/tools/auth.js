@@ -4,7 +4,7 @@ export class Auth {
   isAuth = !!window.localStorage.getItem("access-token");
 
   setToken = (token) => {
-    window.localStorage.getItem("access-token", token);
+    window.localStorage.setItem("access-token", token);
     this.isAuth = true;
   };
   delToken = () => {
