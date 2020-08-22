@@ -1,0 +1,31 @@
+.layout-container {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+.menu {
+  margin: 0 auto;
+  height: 100%;
+  background-image: url("../../img/img-header.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .ant-row {
+    height: 80px !important;
+    line-height: 80px !important;
+    background-color: rgba(255, 255, 255, 0.6);
+    .ant-col {
+      text-align: center;
+    }
+  }
+  .menu-other {
+    cursor: pointer;
+  }
+  ul {
+    li {
+      display: inline-block;
+      padding-left: 3em;
+    }
+  }
+}

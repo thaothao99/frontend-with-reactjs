@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import { routes } from "../config/routes";
+import LayoutComponent from "./layout";
 
 const Routers = (props) => {
   const { Store } = props;
@@ -41,7 +42,9 @@ const Routers = (props) => {
                     import(`./${route.component}`)
                   );
                   return isAuth ? (
-                    <ComponentRender></ComponentRender>
+                    <LayoutComponent>
+                      <ComponentRender></ComponentRender>
+                    </LayoutComponent>
                   ) : (
                     <Redirect to="/login"></Redirect>
                   );

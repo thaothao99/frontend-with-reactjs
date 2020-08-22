@@ -3,23 +3,25 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  background: #feac5e;
-  background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
-  background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
+  background-image: url("../../img/background-login.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
   .content {
     width: 30%;
     position: absolute;
-    top: 30%;
-    transform: translateY(-30%);
-    background: #fff;
-    padding: 4rem 5rem 6rem;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 3px;
+    top: 40%;
+    transform: translateY(-40%);
+    background: rgb(248, 252, 248);
+    opacity: 0.9;
+    padding: 3.5em 3em;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
     .title {
       text-align: center;
-      line-height: 0.75;
     }
     .login-form {
+      height: 100%;
       padding-top: 2em;
       .login-form-button {
         width: 100%;
@@ -30,7 +32,6 @@
       }
       .login-form-button:hover {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-        font-weight: bolder;
       }
       .signup-button {
         float: right;
@@ -41,7 +42,6 @@
       }
       .signup-button:hover {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-        font-weight: bolder;
       }
       .forgot-password-link:hover {
         text-decoration: underline;
@@ -61,5 +61,66 @@
         font-weight: bolder;
       }
     }
+  }
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .ant-form {
+    padding-top: 1em !important;
+    input,
+    button,
+    span {
+      font-size: 12px !important;
+    }
+  }
+  .content {
+    width: 95% !important;
+    padding: 1.5em 2em !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .ant-form {
+    padding-top: 2em !important;
+  }
+  .content {
+    width: 90% !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .content {
+    width: 60% !important;
+    .ant-form {
+      input,
+      button,
+      span {
+        font-size: 12px !important;
+      }
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .content {
+    width: 50% !important;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .content {
+    width: 30% !important;
+  }
+}
+@media only screen and (max-height: 450px) {
+  .content {
+    width: 60% !important;
+    height: inherit;
+    overflow: scroll;
+    padding-bottom: 0 !important;
   }
 }
