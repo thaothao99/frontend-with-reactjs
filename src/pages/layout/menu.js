@@ -13,7 +13,8 @@ export default function MenuComponent() {
           <Avatar
             className="icon-home"
             src={logoHome}
-            style={{ height: "80px", width: "200px" }}
+            shape="square"
+            style={{ height: "60px", width: "125px" }}
           ></Avatar>
         </Col>
         <Col className="search-bar" xl={15}>
